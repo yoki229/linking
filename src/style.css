@@ -1,0 +1,699 @@
+
+/* p{
+    color:brown;
+}
+
+div{
+    width: 400px;
+    height: 400px;
+    background-color: red;
+} */
+
+
+
+/*
+2-2セットアップ問題------------------
+p {
+    color: blue;
+}
+*/
+
+/* 2-4セレクタ問題------------------
+* {
+    line-height: 1;
+}
+
+.number__child {
+    padding-left: 40px;
+}
+
+.number__child:nth-of-type(n+2) {
+    color:blue;
+}
+
+.number__parent:nth-child(3n){
+    color:red;
+}*/
+
+/* 2-7セレクタ------------------
+.example1{
+    display: inline;
+}
+.example2{
+    display: brock;
+}
+.example3,.example4{
+    display: inline-brock;
+} */
+
+/* 2-8文字装飾------------------
+文字の太さ
+p{
+    font-weight: normal;
+    font-weight: bold;
+    font-weight: border;
+    font-weight: lighter;
+    font-weight: 100;
+}
+文字を斜めにする
+p{
+    font-style: normal;
+    font-style: italic;
+    font-style: oblique;
+}
+文字に線を引く
+p{
+    text-decoration: none;
+    text-decoration: underline;
+    text-decoration: overline;
+    text-decoration: line-through;
+}
+フォントの指定
+p{
+    font-family: 英数字のフォント,日本語のフォント,総称フォント;
+    font-family: Helvetica,"游ゴシック",sans-serif;
+} */
+
+/* 2-9文字装飾------------------
+h2{
+    font-family: "Noto Serif JP", serif;
+}*/
+
+/* 2-10文字揃えと行の高さ------------------
+.left{
+    text-align: left;
+}
+.center{
+    text-align: center;
+}
+.right{
+    text-align: right;
+}
+.justify{
+    text-align: justify;
+}
+
+.line-height{
+    width: 200px;
+    height: 300px;
+    text-align: justify;
+    line-height: 30px;
+}*/
+
+/* 2-11背景色と背景画像------------------ */
+/* body{
+    background-color: #ff0000;
+}
+.gradation__bg{
+    width: 100%;
+    height: 700PX;
+    background: linear-gradient(#ff34ff,#8646ff);
+}
+.gradation__bg--deg{
+    width:100%;
+    height: 700px;
+    background: linear-gradient(90deg,#ff34FF,#8646ff);
+}
+.gradation__bg--radial{
+    width: 100%;
+    height: 700px;
+    background: radial-gradient(#ff34ff,#8646ff);
+} */
+/* 画像を背景に選択(繰り返し) */
+/* body{
+    background-image: url("../img/red.jpg");
+} */
+/* 背景画像のサイズを指定(繰り返し) */
+/* body{
+    background-image: url("../img/red.jpg");
+    background-size: 300px 100px;
+} */
+/* 背景画像の繰り返しを制御 */
+/* body{
+    background-image: url("../img/red.jpg");
+    background-size: 300px 100px;
+    background-repeat: no-repeat;
+} */
+/* 背景画像の位置 */
+/* body{
+    background-image: url("../img/red.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+} */
+/* 背景画像の設定(ショートハンド版) */
+/* body{
+    background: #ff34ff url("../img/red.jpg") no-repeat center / 300px 200px;
+} */
+/* 2-11 問題 */
+/* 私の答え(間違い)
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.bg {
+    background: url("../img/firstview.jpg") no-repeat center ;
+    width: cover;
+    height: 700px;
+} */
+/* 正しい答え
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.bg {
+    background: url("../img/firstview.jpg") no-repeat bottom;
+    background-size: cover;
+    height: 700px;
+}
+反省
+まずかかっている要素がbodyじゃないから背景固定された画像じゃない。(勘違い)
+backgroundは画像にかかる。そのまま入れたheightはbg(デザイン領域というブロック)にかかる。
+この場合は要素がdivなので領域の大きさにかかるものがないと何も表示されない。
+centerではなくbottomなのは、「背景画像のbottom部分を表示」という扱いに。 */
+
+/* 2-12横幅と高さ------------------ */
+/* .parent{
+    width: 300px;
+    height: 300px;
+    background-color: red;
+}
+.child{
+    width: 30%;
+    height: 30%;
+    background-color: blue;
+}
+.viewport{
+    width: 50vw;
+    height: 50vh;
+    background-color: yellow;
+} */
+
+/* 2-12問題 */
+/* 自分の答え
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: url("../img/mv.png") no-repeat center / cover;
+    width: 100vw;
+    height: 100vh;
+}
+.color-box{
+    width: 500px;
+    height: 500px;
+}
+.red{
+    height: 50%;
+    background-color: red;
+}
+.blue{
+    height:50%;
+    background-color: blue;
+} */
+
+/* 正解の答え
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.img {
+    width: 100%;
+    height: 100vh;
+}
+.content {
+    width: 500px;
+    height: 500px;
+}
+
+.red-box {
+    width: 100%;
+    height: 50%;
+    background-color: red;
+}
+
+.blue-box {
+    width: 100%;
+    height: 50%;
+    background-color: blue;
+}
+反省 問題文がよく見れば背景に設定するわけじゃなくて「画面いっぱいに表示する」だった…
+かかっている要素が「img」だと、”画像を”100％で表示する。になるのを覚えたい。 */
+
+/* 2-13余白------------------ */
+/* h1{
+    background: #ff0000;
+    margin: 30px;
+}
+p{
+    background: #000;
+    color: #fff;
+}
+
+h1{
+    background: #ff0000;
+    padding: 30px;
+}
+p{
+    background:#000;
+    color: #fff;
+}
+
+.box-sizing{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    padding:30px;
+    border: 20px solid blue;*/
+    /* 「solid」枠線を実線で表示する（borderプロパティの基本は　border:太さ 種類 色） */
+    /* margin: 100px auto 0; */
+    /* 上方向のmarginは100、autoは左右の中央に位置、下方向のmarginは0 */
+/* }
+.content-box{
+    box-sizing: content-box;
+}
+.border-box{
+    box-sizing: border-box;
+} */
+
+/* 2-13問題 */
+/* 自分の答え（正解！！！！）
+.box-sizing{
+    width:400px;
+    height:200px;
+    background-color: red;
+    margin: 50px auto;
+} */
+
+/* 2-14枠線と角丸----------------- */
+/* div{
+    width: 200px;
+    height: 200px;
+    background: #ff0000;
+    border-radius: 30px;
+}
+.cicle{
+    width:200px;
+    height:200px;
+    background: red;
+    border-radius: 50%;
+} */
+/* 2-14問題 */
+/* 自分の答え（正解！！！！！）
+.cicle2{
+    width:200px;
+    height:200px;
+    border-radius: 60px 0 60px 0 ;
+} */
+
+/* 2-15影----------------- */
+/* div{
+    box-shadow: 5px 5px 3px #000;
+    background: #ff0000;
+    width: 300px;
+    height: 300px;
+}
+p{
+    text-shadow: 2px 2px 4px #000;
+} */
+/* 2-15問題 */
+/* 私の答え（正解！！！！！）
+.practice{
+    width: 200px;
+    height:200px;
+    background: #ff0000;
+    box-shadow: 10px 10px 0 #000;
+} */
+
+/* 2-16練習問題-------------------------------------------------------------------------- */
+/* （問題１）---------------------------- */
+
+.practice-button{
+    text-align: center;
+    width: 200px;
+    color:#fff;
+    background: linear-gradient(90deg,#ff5800,#8b00be);
+    padding: 10px 0;
+    margin: 100px auto;
+    border-radius: 30px;
+    box-shadow: 0 5px 0 rgba(255,0,0,0.2);
+}
+
+/* 答え */
+
+.practice__btn{
+    width:200px;
+    padding:10px 0;
+    color: #fff;
+    border-radius: 30px;
+    background: linear-gradient(90deg,#ff5800,#8b00be);
+    text-align:center;
+    box-shadow: 0 5px 0 rgba(255, 0, 0, 0.2);
+    margin: 100px auto 0;
+    display:block;
+}
+
+.practice__button-again{
+    display:block;
+    text-align: center;
+    width: 200px;
+    color:#fff;
+    background: linear-gradient(90deg,#ff5800,#8b00be);
+    padding: 10px 0;
+    margin: 100px auto 0;
+    border-radius: 30px;
+    box-shadow: 0 5px 0 rgba(255,0,0,0.2);
+}
+
+
+/* （問題２）---------------------------- */
+/* 私の回答 */
+.practice__elephant{
+    width: 760px;
+    box-shadow: 0 0 6px #eee;
+    display:flex;
+    margin: 100px auto;
+}
+.practice__elephant-img{
+    width: 40%;
+}
+.practice__elephant-img img{
+    width: 100%;
+}
+
+.practice__elephant-title{
+    font-size: 20px;
+    font-weight: bold;
+    margin:25px;
+}
+.practice__elephant-list{
+    display:flex;
+    list-style: none;
+    margin-left: 25px;
+}
+.practice__elephant-tag{
+    font-size: 14px;
+    margin-right: 20px;
+}
+.practice__elephant-tag--red{
+    color:#ff3400;
+}
+/* 回答 */
+body {
+    width: 760px;
+    margin: 100px auto;
+}
+.card {
+    box-shadow: 0 0 6px #eeeeee;
+    display: flex;
+}
+.card__img {
+    width: 40%;
+}
+.card__img img {
+    width: 100%;
+    vertical-align: top;
+}
+
+.card__content {
+    padding: 15px;
+}
+
+.card__content-ttl {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.card__content-tag {
+    font-size: 14px;
+    display: inline-block;
+}
+
+.card__content-tag--red {
+    color: red;
+    margin-left: 40px;
+}
+
+/* （問題３）---------------------------- */
+/* 私の回答 */
+/* .card{
+    width: 360px;
+    margin: 100px auto;
+    box-shadow:0px 3px 10px rgba(0,0,0,0.2);
+}
+.card__img img {
+    width: 100%;
+}
+.card__text{
+    padding: 15px 20px;
+}
+.card__category{
+    background-color: #008888;
+    font-size: 14px;
+    display: inline-block;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 0 0 15px;
+}
+.card__caption{
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.card__footer{
+    text-align: right;
+}
+.card__tag{
+    font-size: 14px;
+    color: #008888;
+    display: inline-block;
+}
+.card__day{
+    color: #888888;
+    font-size: 14px;
+    margin-left: 20px;
+    display: inline-block;
+} */
+/* 回答 */
+.card {
+    width: 360px;
+    margin: 100px auto 0;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card__img img {
+    width: 100%;
+}
+
+.card__content {
+    padding: 15px 25px;
+}
+
+.card__content-ttl {
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.card__content-cat {
+    padding: 5px 10px;
+    background: #008888;
+    margin-bottom: 15px;
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+}
+
+.card__content-tag {
+    font-size: 14px;
+    text-align: right;
+}
+
+.card__content-tag-item {
+    display: inline-block;
+    color: #008888;
+}
+
+.card__content-tag-item--last {
+    display: inline-block;
+    margin-left: 20px;
+    color: #888888;
+} 
+
+
+/* 2-17 Flexbox----------------- */
+/* .flex{
+    display: flex;
+    flex-direction: row;
+    background-color: yellow;
+}
+.box{
+    background-color: red;
+    margin-right: 20px;
+    font-size: 32px;
+    width:100px;
+    height:100px;
+}
+
+.flex{
+    display: flex;
+    flex-direction:row-reverse;
+    background: yellow;
+}
+.box{
+    background-color:red;
+    margin-right: 20px;
+    font-size: 32px;
+    width: 100px;
+    height: 100px;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+}
+.box{
+    background-color:red;
+    margin-bottom:20px;
+    font-size: 32px;
+    width: 100px;
+    height: 100px;
+} */
+/* 2-17問題 */
+/* .flex{
+    display:flex;
+    justify-content:space-between;
+}
+.card{
+    width:30%;
+} */
+
+/* 2-22 疑似要素----------------- */
+/* .download__btn {
+  position: relative;
+  background-color: #55bbbb;
+  width: 200px;
+  display: block;
+  padding: 18px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  margin: 100px auto;
+} */
+/* .download__btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  background: url(../img/download__icon.svg) no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  transform: translate(0, -50%);
+} */
+/* .parent {
+  position: relative;
+  background: black;
+  color: white;
+  width: 300px;
+  height: 300px;
+}
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.item {
+  background: #ff0000;
+  height: 100px;
+  width: 100px;
+  transform: translate(30px,50px);
+} */
+/* 
+.speech__bubble {
+  padding: 10px 20px;
+  background: red;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+} */
+/* .speech__bubble::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  content: "";
+  margin-left: -10px;
+  border: 10px solid transparent;
+  border-top: 10px solid red;
+} */
+
+
+/* 2-20 グリッド----------------- */
+/* .grid__parent{
+    display: grid;
+    grid-template-rows:100px 300px 300px;
+    grid-template-columns:2fr 1fr 1fr;
+}
+.box1{
+    grid-column:1/4;
+    grid-row:1/2;
+    background-color:#004e4e;
+}
+.box2{
+    grid-column:1/2;
+    grid-row:2/4;
+    background-color:#008888;
+}
+.box3{
+    grid-column:2/3;
+    grid-row:2/3;
+    background-color:#049fb3;
+}
+.box4{
+    grid-column:3/4;
+    grid-row:2/3;
+    background-color:#55bbbb;
+}
+.box5{
+    grid-column:2/4;
+    grid-row:3/4;
+    background-color:#8aacac;
+} */
+/* 2-21 要素の変形----------------- */
+/* .item{
+    background:#ff0000;
+    height:100px;
+    width:100px;
+    transform:rotate(30deg);
+}
+.item-trans{
+    background: #ff0000;
+    height:100px;
+    width:100px;
+    transform:translate(30px,50px);
+}
+
+.trans-parent{
+    position:relative;
+    background: black;
+    color: white;
+    width:300px;
+    height: 300px;
+}
+.trans-child{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+} */
+
+

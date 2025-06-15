@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COACHTECH</title>
+    <!-- 読み込むreset.cssとstyle.cssの宣言 -->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <!-- 2-9問題,「Noto Serif JP」の文字装飾をGoogle Fontsから読み込む -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gorditas&family=Noto+Serif+JP:wght@900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>2章 CSS</h1>
+
+    <!-- <h2>2-2問題</h2>
+    下記画像のように、テキストの文字を青にしてください。
+    <p>テキスト１</p>
+    <p>テキスト２</p>
+    <p>テキスト３</p> -->
+
+    <!-- <h2>2-4命名規則</h2>
+    <h3>BEMとは</h3>
+    <ul>
+        <li>Block:塊</li>
+        <li>Element:要素</li>
+        <li>Modifier:装飾</li>
+    </ul>
+    block__Element--Modifier<br/>
+    <h3>Block:塊</h3>
+    Blockというのはサイト内にある一つの部品のことを指します<br/>
+    例えば、ヘッダーやフッター、サイドバーなど。<br/>
+    <div>
+    <div class="top-header">
+        <div class="top-header__logo">
+            <img src="ing/logo.png" alt=""/>
+        </div>
+    </div>
+    <ul class="top-header__nav">
+        <li class="top-header__list"><a href="">ナビ</a></li>
+        <li class="top-header__list"><a href="">ナビ</a></li>
+        <li class="top-header__list"><a href="">ナビ</a></li>
+        <li class="top-header__list"><a href="">ナビ</a></li>
+    </ul>
+    </div>
+    <h3>Element:要素</h3>
+    Element(エレメント)は、Blockを構成する要素となります。<br/>
+    例えば、ヘッダーの中にある企業ロゴやナビゲーションなど。<br/>
+    <ul class="top-headr__nav">
+        <li class="top-header__nav-list"><a href="">ナビ</a></li>
+        <li class="top-header__nav-list"><a href="">ナビ</a></li>
+        <li class="top-header__nav-list"><a href="">ナビ</a></li>
+        <li class="top-header__nav-list"><a href="">ナビ</a></li>
+    </ul>
+    <h3>Modifier:装飾</h3>
+    Modifier(モディファイア)は、装飾を意味する要素となります。<br/>
+    例えば、複数の共通クラスがある状況で、一部だけ装飾が異なる場合に使用されます。<br/>
+    <div class="top-heder__cta">
+        <a href="" class="top-header__cta-btn">資料請求</a>
+        <a href="" class="top-header__cta-btn--Blue">新規登録</a>
+    </div> -->
+
+    <!-- <h2>2-5セレクタの種類</h2>
+    <h3>2-5セレクタ</h3>
+    <dl>
+        <dt>子孫セレクタ</dt>
+        <dd>div span{}</dd>
+        <dt>子セレクタ</dt>
+        <dd>div &lg; span{}</dd>
+        <td>隣接セレクタ</td>
+        <dd>div+span{}</dd>
+        <td>複数セレクタ</td>
+        <dd>div,span</dd>
+        <td>要素:first-child</td>
+        <dd>p:first-child{} 全ての要素の一番最初の要素</dd>
+        <td>要素:first-of-type</td>
+        <dd>p:first-of-child{} p要素の中で一番最初の要素</dd>
+        <td>要素:last-child</td>
+        <dd>p:last-child{} 全ての要素の一番最後の要素</dd>
+        <td>要素:last-of-type</td>
+        <dd>p:last-of-type{} p要素の中で一番最後の要素</dd>
+        <td>要素:nth-child(n)</td>
+        <dd>p:nth-child(n) 全ての中でn番目の要素</dd>
+        <td>要素:nth-child(3n)</td>
+        <dd>p:nth-child(3n) 同じ階層の中で3の倍数の要素</dd>
+        <td>要素:nth-child(3n-1)</td>
+        <dd>p:nth-child(3n-1) 同じ階層の中の2、5、8等に指定</dd>
+        <td>要素:nth-child(3n+1)</td>
+        <dd>p:nth-child(3n+1) 同じ階層の中で3番目以降の全ての要素</dd>
+        <td>要素:nth-of-type(n)</td>
+        <dd>p:nth-of-type(n) p要素の中の3番目の要素</dd>
+        <td>要素:nth-of-type(3n)</td>
+        <dd>p:nth-of-type(3n) p要素の中で3の倍数の要素</dd>
+        <td>要素:nth-of-type(3n-1)</td>
+        <dd>p:nth-of-type(3n-1) p要素の中の3番目の要素</dd>
+        <td>要素:nth-of-type(n+3)</td>
+        <dd>p:nth-of-type(n+3) p要素の中で3番目以降全てに</dd>
+    </dl>
+    <h3>2-5問題</h3>
+    以下の画像の通りにセレクタを指定してcssで文字色を変更してください。<br/>
+    以下CODE PENよりHTMLとCSSのコードをコピーしてご利用ください。<br/>
+    <p class="number__parent">1</p>
+    <div>
+        <p class="number__child">1-1</p>
+        <p class="number__child">1-2</p>
+        <p class="number__child">1-3</p>
+    </div>
+    <p class="number__parent">2</p>
+    <div>
+        <p class="number__child">2-1</p>
+        <p class="number__child">2-2</p>
+        <p class="number__child">2-3</p>
+    </div>
+    <p class="number__parent">3</p>
+    <div>
+        <p class="number__child">3-1</p>
+        <p class="number__child">3-2</p>
+        <p class="number__child">3-3</p>
+    </div>
+    <p class="number__parent">4</p>
+    <div>
+        <p class="number__child">4-1</p>
+        <p class="number__child">4-2</p>
+        <p class="number__child">4-3</p>
+    </div>
+    <p class="number__parent">5</p>
+    <div>
+        <p class="number__child">5-1</p>
+        <p class="number__child">5-2</p>
+        <p class="number__child">5-3</p>
+    </div>
+    <p class="number__parent">6</p>
+    <div>
+        <p class="number__child">6-1</p>
+        <p class="number__child">6-2</p>
+        <p class="number__child">6-3</p>
+    </div> -->
+
+    <!-- <h2>2-7要素の表示形式</h2>
+    <h3>displayプロパティ</h3>
+    以下のようにdisplayプロパティを指定することで要素の表示形式を変換することができます。<br/>
+    <div class="example1">ブロック要素をインライン要素に変換</div>
+    <span class="example2">インライン要素をブロック要素に変換</span>
+    <div class="example3">ブロック要素をインラインブロック要素に変換</div>
+    <span class="example4">インライン要素をインラインブロック要素に変換</span>
+    <p></p>
+    <div class="example1" style="display:inline;">ブロック要素をインライン要素に変換</div>
+    <span class="example2" style="display:brock;">インライン要素をブロック要素に変換</span>
+    <div class="example3" style="display:inline-brock;">ブロック要素をインラインブロック要素に変換</div>
+    <span class="example4" style="display: inline-brock;">インライン要素をインラインブロック要素に変換</span>
+    <p></p>
+    上はexample4だけ改行されない。下はexample1だけ改行されない。<br/>
+    ということはインライン要素になっているということ……謎…？？<br/> -->
+
+    <!-- <h2>2-9文字装飾</h2>
+    <h3>2-9問題</h3>
+    日本語フォントの「Noto Serif JP」の「Black 900」をインポートし、h2に対して指定してください。<br/>
+    <h2>Sample text</h2> -->
+
+    <!-- <h2>2-10文字揃えと行の高さ</h2>
+    <h3>文字揃え</h3>
+    「text-align」というプロパティで文字揃えを指定します。
+    <ul>
+        <li class="left">left(初期値)</li>
+        <li class="center">center(中央)</li>
+        <li class="right">right(右)</li>
+        <li class="justify">justify(テキストが端っこまでいったときに揃う均等揃え)</li>
+    </ul>
+    <h3>行の高さ</h3>
+    <div class="line-height">文章というものは、行と行の間隔が全くないと、とても読みづらいものです。「line-height」プロパティを使えば、文字の行間を調節することができます。行間とは、下の図のように、文字の大きさ(font-size)とその文字の上下の余白のことです。</div> -->
+
+    <!-- <h2>2-11背景色と背景画像</h2>
+    <h3>背景色</h3>
+    背景色を指定するプロパティは「background-color」です。<br/>
+    値にはcolorと同様にキーワード・カラーコード・RGB・RGBAが使えます。<br>
+    以下の例では「background-color」を「#ff0000」に設定しています。<br>
+    <p>背景色</p>
+    背景色をグラデーションにするには、CSSプロパティの「background」を使用します。<br>
+    値には、liner-gradientを使用します。以下の例では、カラーコード「#ff34ff」から「#8646ff」に上から下へグラデーションするという設定をしています。<br>
+    <div class="gradation__bg"></div>
+    <h3>角度を変更する</h3>
+    グラデーションの方向は値にdegを追加することで、角度を変更することができます。<br>
+    下記例では、90degを指定することで、左から右へグラデーションがかかっていることがわかります。<br>
+    degにはマイナスの値も指定することができます。<br>
+    <div class="gradation__bg--deg"></div>
+    <h3>円形グラデーション</h3>
+    直接的なグラデーションだけでなく、円形にグラデーションをCSSで表現したい場合、<br>
+    上記で使用していた「liner-gradient」だけでなく、「radial-gradient」を使用します。<br>
+    <div class="gradation__bg--radial"></div>
+
+    <h3>背景画像</h3>
+    <div>背景に画像を入れる</div>
+
+    <h3>背景画像サイズ</h3>
+    次に背景画像のサイズを指定します。<br>
+    プロパティ名は「background-size」です。<br>
+    pxや%でも指定できますが、横幅が変わったときに合わせて自動的に変化する値も用意されています。<br>
+    <ul>
+        <li>auto(初期値...そのままのサイズを繰り返し)</li>
+        <li>cover(背景領域を完全に覆う最小サイズになるように拡大縮小されます)</li>
+        <li>contain(背景領域に収まる最大サイズになるように拡大縮小されます)</li>
+        <li>px</li>
+        <li>%</li>
+    </ul>
+    <div>背景画像 サイズ指定して繰り返し</div>
+
+    <h3>背景画像の繰り返し</h3>
+    表示領域より画像が小さいと、背景画僧は自動的に繰り返し表示になります。<br>
+    この繰り返しについては「background-repeat」というプロパティで制御することができます。<br>
+    値は以下のようなものがあります。<br>
+    <ul>
+        <li>repeat(デフォルト)</li>
+        <li>repeat-x(横並びだけリピートさせる)</li>
+        <li>repeat-y(縦並びだけリピートさせる)</li>
+        <li>no-repeat(繰り返しをなくして1個だけ表示する)</li>
+    </ul>
+    <div>背景画像 サイズを指定して繰り返しなし</div>
+
+    <h3>背景画像の位置</h3>
+    通常、背景画像は要素の一番上から詰めて並べられますが、<br>
+    「background-position」によって位置を制御することができます。<br>
+    値は以下のようなものがあります。<br>
+    <ul>
+        <li>キーワード(top・light・bottom・left)</li>
+        <li>%</li>
+        <li>px</li>
+    </ul>
+    <div>背景画像 繰り返しなし 真ん中に位置づけ</div>
+
+    <h3>ショートハンド</h3>
+    これらのプロパティは、１つのプロパティでまとめて記述することができる。<br>
+    まとめて記述することを「ショートハンド」という。<br>
+    <p>background: 色 url(ファイルの場所) 繰り返し 位置 / サイズ ;</p>
+    位置とサイズの間にだけ「/」が必要です。<br> -->
+
+    <!-- <h3>2-11 問題</h3>
+    この章で学んだことを生かして下記画像のように表示してください。<br>
+    コードのheight:700pxは高さを指定しています。<br>
+
+    <div class="bg"></div> -->
+
+    <!-- <h2>2-12横幅と高さ</h2> -->
+    <!-- <h2>%とvhの違い</h2>
+    %とvw・vhの説明。<br>
+    決定的な違いとして「%は親要素に依存」し、「vw・vhはブラウザの画面に依存」する。<br>
+    それぞれの違いを実際にコードを記述して確認しましょう。<br>
+    <div class="parent">
+        <div class="child">
+            %は親要素から30%の幅になる
+        </div>
+    </div>
+    <div class="viewport">
+        ブラウザ幅に対して50%となる
+    </div> -->
+
+    <!-- <h3>2-12問題</h3>
+    <p>問題１</p>
+    画像ファイルをダウンロードし、この章で学んだことを生かして表示してください。<br>
+    どのようなブラウザ幅でも画面いっぱいに表示させてください。<br>
+    <img class="img" src="./img/mv.png">
+    <p>問題２</p>
+    縦横500pxの要素の中に赤い要素と青い要素を縦に半分半分で配置してください。<br>
+    私の答え
+    <div class="color-box">
+        <div class="red"></div>
+        <div class="blue"></div>
+    </div>
+    正解の答え
+    <div class="content">
+    <div class="red-box"></div>
+    <div class="blue-box"></div>
+    </div> -->
+
+    <!-- <h2>2-13余白</h2> -->
+    <!-- <h3>ボックスモデル</h3>
+    <p>content</p>
+    contentの幅はwidthプロパティ、高さはheightプロパティを指定することで<br>
+    任意の幅と高さに変更することができる。<br>
+    <p>padding</p>
+    paddingは要素に内側の余白をとるために使い、cssのpaddingプロパティを使用してサイズを指定できます。<br>
+    <p>border</p>
+    borderはその名の通り枠線を表します。<br>
+    cssのborderプロパティを使用して枠線のサイズや色、線の種類を指定できます。<br>
+    <p>margin</p>
+    marginはその名の通り外側の余白をとるために使い、cssのmarginプロパティを使用してサイズを指定できます。
+
+    <h3>外側の余白</h3>
+    外側の余白はmarginプロパティです。
+    <h1>余白</h1>
+    <p>margin</p>
+    上下左右に設定できる。
+    <ul>
+        <li>margin-top</li>
+        <li>margin-right</li>
+        <li>margin-bottom</li>
+        <li>margin-left</li>
+    </ul>
+    <h3>ショートハンド</h3>
+    <ul>
+        <li>margin:10px 20px; (上下、左右)</li>
+        <li>margin:10px 20px 30px; (上、左右、下)</li>
+        <li>margin:10px 20px 30px 40px; (上、右、下、左)</li>
+    </ul>
+
+    <h3>内側の余白</h3>
+    内側の余白はpaddingプロパティです。
+    <h1>余白</h1>
+    <p>padding</p>
+    上下左右に設定できる。
+    <ul>
+        <li>padding-top</li>
+        <li>padding-right</li>
+        <li>padding-bottom</li>
+        <li>padding-left</li>
+    </ul>
+    <h3>ショートハンド</h3>
+    <ul>
+        <li>padding:10px 20px; (上下、左右)</li>
+        <li>padding:10px 20px 30px; (上、左右、下)</li>
+        <li>padding:10px 20px 30px 40px; (上、右、下、左)</li>
+    </ul>
+
+    <h3>box-sizing</h3>
+    paddingやborderを設定するときによく使用されるプロパティの一つ。
+    ※ボックスの外側は関係ないのでmarginは基本かかわってこない。
+    「box-sizing」プロパティは、要素の幅や高さにborderやpaddingを含めるのか否かを設定することができる。
+    <p>box-sizing:content-box</p>
+    これは初期値です。borderとpaddingを要素の幅と高さに含めない。
+    <ul>
+        <li>width:300px</li>
+        <li>height:300px</li>
+        <li>padding:30px</li>
+        <li>border:20px</li>
+    </ul>
+    これは要素(ボックス)のサイズが300×300、余白が30px、枠線が20pxなので<br>
+    400×400のボックスが作られることになる。<br>
+    <p>box-sizing:border-box</p>
+    borderとpaddingを、要素の幅と高さに含める。よく使用される。
+    <ul>
+        <li>width:300px</li>
+        <li>height:300px</li>
+        <li>padding:30px</li>
+        <li>border:20px</li>
+    </ul>
+    この場合、border-boxでは、paddingもborderも要素(ボックス)の内側扱いなので<br>
+    300×300のボックスが作られることになる。
+
+    <div class="box-sizing content-box"></div>
+    <div class="box-sizing border-box"></div>
+
+    <p>box-sizing:inherit(インヘリット)</p>
+    親要素のborder-boxの値を引き継ぎます。 -->
+
+    <!-- <h3>2-13問題</h3>
+    幅が400px高さが200pxのブロックを作り、左右中心に配置し、上下に50pxの余白をつけてください。
+
+    <div class="box-sizing"></div> -->
+
+    <!-- <h3>2-14枠線と角丸</h3>
+    <h2>枠線</h2>
+    枠線の装飾をつけることができます。<br>
+    枠線はスタイル・太さ・色の三種類を指定することができます。<br>
+    <ul>
+        <li>border-style</li>
+        <li>border-width</li>
+        <li>border-color</li>
+    </ul>
+    そしてこの三つを一つにまとめることができます。<br>
+    <p>border:スタイル 太さ 色 ;</p>
+    border-styleの代表的な値には以下のものがあげられます。
+    <ul>
+        <li>solid(１本線)</li>
+        <li>double(２本線)</li>
+        <li>dashed(破線)</li>
+        <li>dotted(点線)</li>
+    </ul>
+    上下左右分けて記述することもできます。
+    <ul>
+        <li>border-top</li>
+        <li>border-right</li>
+        <li>border-bottom</li>
+        <li>border-left</li>
+    </ul>
+    <h2>角丸</h2>
+    <h3>よく使用する例</h3>
+    要素のコーナーを角丸にすることができるCSSプロパティです。<br>
+    値はpxか%で指定します。<br>
+    <div></div>
+    角丸にした図形<br>
+    角丸のサイズは一か所ずる指定することもできます。<br>
+    <ul>
+        <li>border-top-left-radius</li>
+        <li>border-top-right-radius</li>
+        <li>border-bottom-right-radius</li>
+        <li>border-bottom-left-radius</li>
+    </ul>
+    まとめて指定するには以下のようになります。<br>
+    <p>border-radius: 左上 右上 右下 左下;</p>
+    <h3>正円</h3>
+    「border-radius」プロパティを使用した正円を作成することができます。<br>
+    まずは正方形を作成し、border-radius:50%を指定することができます。
+    <div class="cicle"></div>
+    <h3>2-14問題</h3>
+    下記のような図形を作成してください。<br>
+    角丸：60px 幅：200px 高さ：200px <br>
+    私の答え
+    <div class="cicle2"></div>
+    (「クラス名」に悩んだけど正解の答えはクラス名が「practice(プラクティス)」だった。「練習」って意味！) -->
+
+    <!-- <h3>2-15影</h3>
+    <h2>要素に対する影</h2>
+    「box-shadow」は要素の周囲に影をつけることができるCSSプロパティです。<br>
+    基本的な値には影の位置とぼかし距離、色を指定します。<br>
+    <p style="margin:10px auto;"><strong>box-shadow: 左右の向き 上下の向き ぼかし距離 色 ;</strong></p>
+    例えば右に5px、下に5px、ぼかし距離を3px、色は黒の影をつけてみます。
+    <div></div>
+    <h3>文字に対する影</h3>
+    「text-shadow」は文字に影をつけることができるCSSプロパティです。
+    基本的にはbox-shadowと同じく、影の位置とぼかし距離、色を指定することができます。
+    <p style="margin:10px auto;"><strong>text-shadow: 左右の向き 上下の向き ぼかし距離 色 ;</strong></p>
+    例えば右に2px、下に2px、ぼかし距離を4px、色は黒の影をつけてみます。
+    <p>文字に対する影</p>
+    <h3>2-15問題</h3>
+    下記画像と同じようなものを作りましょう。
+    <ul>
+        <li>幅：200px</li>
+        <li>高さ：200px</li>
+        <li>右方向：10px</li>
+        <li>下方向：10px</li>
+        <li>影の色：黒</li>
+        <li>ぼかし：なし</li>
+    </ul>
+    <div class="practice"></div> -->
+
+
+    <!-- <h2>2-16 練習問題</h2> -->
+    <!-- <h3>練習問題１</h3>
+    下記画像の通りにボタンを作成してみましょう。
+    <ul>
+        <li>aタグを用いて作ってください。</li>
+        <li>幅：200px</li>
+        <li>上下内側の余白：10px</li>
+        <li>使用したカラーコード：#ff5800 , #8b00be, rgba(255, 0, 0, 0.2)</li>
+        <li>角丸：30px</li>
+        <li>配置：上から100px 左右中央</li>
+        <li>影：box-shadow: 0 5px 0 rgba(255, 0, 0, 0.2);</li>
+    </ul>
+
+    <p class="practice-button">
+        <a href="">詳しく見る</a>
+    </p>
+
+    <h3>答え</h3>
+    <a class="practice__btn">詳しく見る</a>
+
+    <a class="practice__button-again" href="">詳しく見る</a> -->
+    <!-- 私の回答をpからaにしてdisplay:blockをつけてみたやつ。（あと下についてたmarginもとった）<br>
+    最初私は回答にdisplay:inline-blockをつけていたけど、それだと余白がちゃんと働かなかった。<br>
+    これはdisplay:blockが正しいらしい。<br>
+    pとaに関しては、p親にa子で、aにリンク先URLをつけると文字色が白くならないけど<br>
+    親なしのaにリンク先URLをつけると文字色が白くなってくれるらしい。なぜ？？？？<br>
+    →P要素に文字とか書いてないからや！！！！！！！！！！！！！！！！！！！（解決）<br> -->
+
+
+    <h3>練習問題２</h3>
+    下記画像のカードをBEMの命名規則に従って作成してください。
+    <ul>
+        <li>幅760px</li>
+        <li>画像幅:40%</li>
+        <li>影:上下左右のずらしは0、6pxのぼかし、影の色は#eeeeee</li>
+        <li>タイトル:文字サイズ20px、太字、下に25pxの余白</li>
+        <li>#〇〇/文字サイズ14px</li>
+    </ul>
+
+    私の回答
+    <div class="practice__elephant">
+        <div class="practice__elephant-img">
+            <img src="./img/elephant.png" alt="練習問題画象"/>
+        </div>
+        <div>
+            <h1 class="practice__elephant-title">カードのタイトルがここには入ります。カードのタイトルがここには入ります。</h1>
+            <ul class="practice__elephant-list">
+                <li class="practice__elephant-tag">＃プログラミング</li>
+                <li class="practice__elephant-tag--red">＃スクール</li>
+            </ul>
+        </div>
+    </div>
+
+    回答
+    <div class="card">
+    <div class="card__img">
+        <img src="img/elephant.png" alt="" />
+    </div>
+    <div class="card__content">
+        <h2 class="card__content-ttl">カードのタイトルがここには入ります。</h2>
+        <p class="card__content-tag">#プログラミング</p>
+        <p class="card__content-tag card__content-tag--red">#スクール</p>
+    </div>
+    </div>
+    <!-- 調べたのをがんがん使っていいなんてずりぃよ！！！そっちがその気ならなぁっ！！！
+    ただ、親要素の中の子要素に装飾する「.card__img img {」は盲点だった。これは反省。
+    象さんなんで大きさ違うんだろう。 -->
+
+    <!-- <h3>練習問題３</h3> -->
+    <!-- 下記画像のカードをBEMの命名規則に従って作成してください。
+    <ul>
+        <li>幅360px</li>
+        <li>配置：上から100px左右中央</li>
+        <li>使用したカラーコード：#008888,#888888</li>
+        <li>「カテゴリー」「ごはん」「2021/01/01」の文字サイズ：14px</li>
+        <li>「今日のごはんは…」の文字サイズ：18px</li>
+        <li>「今日のごはんは…」の下余白：30px</li>
+        <li>「2021/01/01」の左余白：20px</li>
+        <li>「#朝ごはん」の下余白：15px</li>
+        <li>影：box-shadow:0px 3px 10px rgba(0,0,0,0.2);</li>
+    </ul>
+
+    私の回答
+    <div class="card">
+        <div class="card__img">
+            <img src="./img/card.jpg" alt="">
+        </div>
+        <div class="card__text">
+            <p class="card__category">カテゴリー</p>
+            <p class="card__caption">今日の朝ごはんは卵と肉を合わせたバランスの良いメニューです。</p>
+            <div class="card__footer">
+                <p class="card__tag">#朝ごはん</p>
+                <p class="card__day">2021/01/01</p>
+            </div>
+        </div>
+
+    </div>
+
+    回答
+    <div class="card">
+        <div class="card__img">
+            <img src="img/card.jpg" alt="" />
+        </div>
+        <div class="card__content">
+            <div class="card__content-cat">カテゴリー</div>
+            <h2 class="card__content-ttl">
+            今日の朝ごはんは卵と肉を合わせたバランスの良いメニューです。
+            </h2>
+            <div class="card__content-tag">
+                <p class="card__content-tag-item">#朝ごはん</p>
+                <p class="card__content-tag-item card__content-tag-item--last">
+                2021/01/01
+                </p>
+            </div>
+        </div>
+    </div> -->
+    <!-- 反省点
+    BEMの命名規則に従えっていうのを忘れてて名づけがわかりづらいままだった。
+    h2をエレメントでみていながらエレメント分けしてなかった。  -->
+
+
+
+    <!-- <h2>2-17 Flexbox</h2> -->
+    <!-- <h2>Flexbox</h2>
+    CSSで要素を配置する方法は複数ありますが、基本的にはFlexboxを使用することが多いのでしっかりと覚えましょう。<br>
+    Flexboxは横並びにしたい要素の親要素のdisplayプロパティにflexを指定することで子要素が横並びになります。<br>
+
+    <h3>並ぶ向き(Flex-direction)</h3>
+    子要素をどの方向に配置していくかを指定する際にはflex-directionプロパティを指定します<br>
+    <p>row(初期値)</p>
+    子要素が左から右に配置されます。<br>
+    <br>
+    .flex{<br>
+        display: flex;<br>
+        flex-direction: row;<br>
+    }<br>
+    <div class="flex">
+        <div class="box">①</div>
+        <div class="box">②</div>
+        <div class="box">③</div>
+    </div>
+
+    <p>row-reverse</p>
+    子要素が右から左に配置されます。
+    .flex{<br>
+        display: flex;<br>
+        flex-direction: row-reverse;<br>
+    }<br>
+    <div class="flex">
+        <div class="box">①</div>
+        <div class="box">②</div>
+        <div class="box">③</div>
+    </div>
+
+    <p>column</p>
+    子要素が上から下に配置されます。
+    .flex{<br>
+        display:flex;<br>
+        flex-direction: column;<br>
+    }<br>
+    <div class="flex">
+        <div class="box">①</div>
+        <div class="box">②</div>
+        <div class="box">③</div>
+    </div>
+
+    <p style="font-size:50px; font-weight:bold;">ちょっとしゃらくさくなったのでリストにする。</p>
+
+    <h2>flex-direction(要素を縦・横並びに配置)</h2>
+    <ul>
+        <li style="list-style: none;">:row (左から横並びに配置)</li>
+        <li style="list-style: none;">:row-reverse (右から横並びに配置)</li>
+        <li style="list-style: none;">:column (上から縦並びに配置)</li>
+        <li style="list-style: none;">:column-reverse(下から縦並びに配置)</li>
+    </ul>
+
+    <h2>justify-content(要素を等間隔に横並び配置)</h2>
+    <ul>
+        <li style="list-style: none;">:flex-start (左から均等配置)</li>
+        <li style="list-style: none;">:flex-end (右から均等配置)</li>
+        <li style="list-style: none;">:center (全部ぎゅっと中央揃え)</li>
+        <li style="list-style: none;">:space-between (最初と最後は両端、それ以外を均等配置)</li>
+        <li style="list-style: none;">:space-around (端から端まで均等揃え)</li>
+    </ul>
+
+    <h2>align-items(親要素の領域の中で自由に配置)</h2>
+    <ul>
+        <li style="list-style: none;">:stretch (親の高さorコンテンツが一番多い子要素に合わせられる)</li>
+        <li style="list-style: none;">:flex-start (親の開始位置から)</li>
+        <li style="list-style: none;">:flex-end (親の終点から)</li>
+        <li style="list-style: none;">:center (中央)</li>
+    </ul>-->
+    <!-- <h3>2-17問題</h3>
+    下記画像のように、カードを３つ横並びにして、最初と最後のカードを両端に配置し、その間のカードは均等配置してください。<br>
+    カードの端は、画面幅に応じて大きさを変えたいため、30％と指定してください。<br>
+
+    <div class="flex">
+        <div class="card">
+            <div class="card__img">
+                <img src="img/card.jpg" alt="" />
+            </div>
+            <div class="card__content">
+                <div class="card__content-cat">カテゴリー</div>
+                <h2 class="card__content-ttl">
+                    今日の朝ごはんは卵と肉を合わせたバランスの良いメニューです。
+                </h2>
+                <div class="card__content-tag">
+                    <p class="card__content-tag-item">#朝ごはん</p>
+                    <p class="card__content-tag-item card__content-tag-item--last">
+                        2021/01/01
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__img">
+                <img src="img/card.jpg" alt="" />
+            </div>
+            <div class="card__content">
+                <div class="card__content-cat">カテゴリー</div>
+                <h2 class="card__content-ttl">
+                    今日の朝ごはんは卵と肉を合わせたバランスの良いメニューです。
+                </h2>
+                <div class="card__content-tag">
+                    <p class="card__content-tag-item">#朝ごはん</p>
+                    <p class="card__content-tag-item card__content-tag-item--last">
+                        2021/01/01
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__img">
+                <img src="img/card.jpg" alt="" />
+            </div>
+            <div class="card__content">
+                <div class="card__content-cat">カテゴリー</div>
+                <h2 class="card__content-ttl">
+                    今日の朝ごはんは卵と肉を合わせたバランスの良いメニューです。
+                </h2>
+                <div class="card__content-tag">
+                    <p class="card__content-tag-item">#朝ごはん</p>
+                    <p class="card__content-tag-item card__content-tag-item--last">
+                        2021/01/01
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+    <!-- <h2>2-22疑似要素</h2>
+    <a href="" class="download__btn">ダウンロード</a> -->
+    <!-- <div class="item"></div> -->
+    <!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+<!-- <h2>2-20グリッド</h2>
+
+<div class="grid__parent">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+    <div class="box4">box4</div>
+    <div class="box5">box5</div>
+</div> -->
+    <!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+
+</body>
+</html>
